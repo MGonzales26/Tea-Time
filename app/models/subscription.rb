@@ -21,7 +21,7 @@ class Subscription < ApplicationRecord
   
   def self.set_up_economy_subscription
     subscription = Subscription.create(:title => 'economy',
-      price: 19.99,
+      price: 9.99,
       status: 'active',
       frequency: 'monthly'
     )
@@ -37,7 +37,7 @@ class Subscription < ApplicationRecord
   
   def self.set_up_zen_subscription
     subscription = Subscription.create(:title => 'zen',
-      price: 19.99,
+      price: 24.99,
       status: 'active',
       frequency: 'weekly'
     )
