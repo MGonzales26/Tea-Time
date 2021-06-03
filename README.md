@@ -39,7 +39,7 @@ Creates a new subscription. The request needs to include the title of the plan (
 }
 ```
 
-The response status will be `201` and will be formatted in JSON as well.
+The response status will be `201`  and will be formatted in JSON as well.
 ```
 {
     "data": {
@@ -62,7 +62,7 @@ Cancels a subscription. The request must include the subscriptions id formatted 
   "subscription_id": "1"
 }
 ```
-The response will a `204` status code.
+The response will be a `204` status code.
 
 ---
 `GET /api/v1/customer/:id/subscriptions`
