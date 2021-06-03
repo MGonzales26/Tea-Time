@@ -6,4 +6,9 @@ class Api::V1::SubscriptionsController < ApplicationController
     customer.subscriptions << subscription
     render json: SubscriptionSerializer.new(subscription), status: :created
   end
+
+  def destroy
+    customers_subscription = CustomerSubscription.where(subscription_id: params[:subscription_id])
+    CustomerSubscription.destroy(customers_subscription.ids)
+  end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :subscription do
-    title { "MyString" }
-    price { 1.5 }
-    status { "MyString" }
-    frequency { "MyString" }
+    title { "economy" }
+    price { 9.99 }
+    status { "active" }
+    frequency { "monthly" }
   end
 end
