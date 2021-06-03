@@ -5,4 +5,5 @@ Rails.application.routes.draw do
       resource :subscriptions, only: [:create, :destroy]
     end
   end
+  get '/api/v1/customer/:id/subscriptions', to: 'api/v1/subscriptions#index'
 end
