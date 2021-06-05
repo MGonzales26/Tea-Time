@@ -9,12 +9,12 @@ class Subscription < ApplicationRecord
   validates :frequency, presence: true, allow_nil: false
   validates :status, presence: true, allow_nil: false
 
-  def self.set_up_subscription(title)
-    if title == 'economy'
+  def self.set_up_subscription(tier)
+    if tier["title"] == 'economy'
       set_up_economy_subscription
-    elsif title == 'standard'
+    elsif tier["title"] == 'standard'
       set_up_standard_subscription
-    elsif title == 'zen'
+    elsif tier["title"] == 'zen'
       set_up_zen_subscription
     end
   end
