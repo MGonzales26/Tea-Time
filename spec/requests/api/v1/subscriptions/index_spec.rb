@@ -8,6 +8,8 @@ RSpec.describe "customer's subscriptions index" do
       canceled_sub = create(:subscription, status: 'canceled')
       customer.subscriptions << [active_sub, canceled_sub]
 
+      Bullet.start_request
+      
       get "/api/v1/customer/#{customer.id}/subscriptions"
 
       expect(response.status).to eq(200)

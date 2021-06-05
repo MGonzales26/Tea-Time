@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     end
   end
   get '/api/v1/customer/:id/subscriptions', to: 'api/v1/subscriptions#index'
+  get '/performance_tests', to: 'performance_tests#index'
 end

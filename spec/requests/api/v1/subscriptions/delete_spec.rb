@@ -7,6 +7,8 @@ RSpec.describe 'deactivate subscription' do
       subscription = create(:subscription)
       customer.subscriptions << subscription
 
+      Bullet.start_request
+      
       expect(customer.subscriptions.count).to eq(1)
       
       headers = { 'Content-Type' => 'application/json' }
