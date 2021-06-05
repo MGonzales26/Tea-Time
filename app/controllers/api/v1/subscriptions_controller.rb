@@ -1,4 +1,12 @@
 class Api::V1::SubscriptionsController < ApplicationController
+  
+  def index
+    customer = Customer.find(params[:id])
+    subscriptions = customer.subscriptions
+    render json: SubscriptionSerializer.new(subscriptions)
+    # customer = Customer.includes(:subscriptions).find(params[:id])
+    # render json: SubscriptionSerializer.new(customer)
+  end
 
   def create
     customer = Customer.find(params[:customer_id])
@@ -10,11 +18,5 @@ class Api::V1::SubscriptionsController < ApplicationController
   def destroy
     customers_subscription = CustomerSubscription.where(subscription_id: params[:subscription_id])
     CustomerSubscription.destroy(customers_subscription.ids)
-  end
-
-  def index
-    customer = Customer.find(params[:id])
-    subscriptions = customer.subscriptions
-    render json: SubscriptionSerializer.new(subscriptions)
   end
 end
