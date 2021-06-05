@@ -5,6 +5,8 @@ RSpec.describe 'new subscription' do
     it 'creates a new subscription when given the title and customer id' do
       customer = create(:customer)
 
+      Bullet.start_request
+      
       creation_variables = {title: 'economy', customer_id: customer.id }
 
       headers = { "CONTENT_TYPE" => "application/json" }
