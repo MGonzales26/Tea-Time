@@ -42,4 +42,34 @@ RSpec.describe "customer's subscriptions index" do
 
     end
   end
+
+  describe 'sad path' do
+    it "returns an error is the customer does not exist" do
+      get "/api/v1/customer/1/subscriptions"
+      
+      expect(response.status).to eq(400)
+
+      result = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(result).to be_a(Hash)
+      expect(result).to have_key(:error)
+      expect(result[:error]).to be_a(String)
+      expect(result[:error]).to eq("Couldn't find Customer with 'id'=1")
+    end
+
+    it "returns an error if the customer id is a string" do
+      customer = create(:customer, id: 1)
+
+      get "/api/v1/customer/one/subscriptions"
+      
+      expect(response.status).to eq(400)
+
+      result = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(result).to be_a(Hash)
+      expect(result).to have_key(:error)
+      expect(result[:error]).to be_a(String)
+      expect(result[:error]).to eq("Couldn't find Customer with 'id'=one")
+    end
+  end
 end
