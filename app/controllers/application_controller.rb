@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_bad_parameters
   rescue_from ActiveRecord::AssociationTypeMismatch, with: :missing_title
+  rescue_from ActionController::ParameterMissing, with: :missing_title
 
   def render_bad_parameters(error)
     render json: ErrorSerializer.new(error), status: :bad_request
