@@ -26,7 +26,7 @@ RSpec.describe 'new subscription' do
       expect(result[:data]).to have_key(:attributes)
       expect(result[:data][:attributes]).to be_a(Hash)
       expect(result[:data][:attributes]).to have_key(:title)
-      expect(result[:data][:attributes][:title]).to be_a(String)
+      expect(result[:data][:attributes][:title]).to be_a(String) 
       expect(result[:data][:attributes][:title]).to eq(creation_variables[:title])
       expect(result[:data][:attributes]).to have_key(:price)
       expect(result[:data][:attributes][:price]).to be_a(Float)
