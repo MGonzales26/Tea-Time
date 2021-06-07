@@ -21,7 +21,7 @@ RSpec.describe 'deactivate subscription' do
     end
   end
 
-  describe 'happy path' do
+  describe 'sad path' do
     it 'returns an error if the subscription does not exist' do
       headers = { 'Content-Type' => 'application/json' }
       subscription_id = { subscription_id: 1 }
